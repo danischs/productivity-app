@@ -1,0 +1,116 @@
+:root {
+  --stone: #1f1f1f;
+  --iron: #2c2c2c;
+  --iron-2: #242424;
+  --bone: #e8e4dc;
+  --gold: #c5a24f;
+  --gold-soft: rgba(197, 162, 79, 0.45);
+}
+
+/* Center the timer area on the page */
+.timer-shell {
+    flex: 1;                 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1.5rem;   
+    min-height: 0;           
+}
+
+/* Stone card */
+.timer-card {
+    margin-top: 10rem;
+    width: min(680px, 100%);
+    background: linear-gradient(180deg, var(--iron), var(--iron-2));
+    border: 1px solid rgba(232, 228, 220, 0.08);
+    border-top: 3px solid var(--gold);
+    border-radius: 18px;
+    padding: 3.25rem 2.5rem 2.25rem;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+    text-align: center;
+    position: relative;
+}
+
+/* Subtle rune divider */
+.timer-card::before {
+  content: "᛫ ᚨ ᛫ ᚱ ᛫";
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(197, 162, 79, 0.55);
+  letter-spacing: 16px;
+  font-size: 1.8rem;
+  text-shadow: 0 0 8px rgba(197, 162, 79, 0.4);
+}
+
+/* Big gold timer */
+#timer {
+  margin: 0;
+  font-size: clamp(3rem, 6vw, 5rem);
+  letter-spacing: 4px;
+  color: var(--gold);
+  text-shadow: 0 0 14px rgba(197, 162, 79, 0.35);
+  font-variant-numeric: tabular-nums; /* keeps digits same width */
+}
+
+/* Buttons row */
+.timer-actions {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Shared button styling */
+#action-btn,
+#reset-btn {
+  border-radius: 12px;
+  padding: 0.9rem 1.2rem;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+/* Primary button */
+#action-btn {
+  background: var(--gold);
+  color: #141414;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 20px rgba(197, 162, 79, 0.22);
+}
+
+#action-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(197, 162, 79, 0.28);
+}
+
+#action-btn:active {
+  transform: translateY(0px);
+}
+
+/* Secondary button */
+#reset-btn {
+  background: transparent;
+  color: var(--bone);
+  border: 1px solid rgba(232, 228, 220, 0.18);
+}
+
+#reset-btn:hover {
+  border-color: rgba(197, 162, 79, 0.45);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.28);
+  transform: translateY(-1px);
+}
+
+#reset-btn:active {
+  transform: translateY(0px);
+}
+
+/* Optional: make page background match theme */
+body {
+  background: #111;
+  color: var(--bone);
+}
