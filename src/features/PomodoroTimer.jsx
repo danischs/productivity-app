@@ -1,17 +1,6 @@
 import { useState, useEffect } from "react";
-import './PomodoroTimer.css';
-
-function formatTime(totalSeconds){
-    const seconds = (totalSeconds % 60).toString();
-    const minutes = Math.floor(totalSeconds / 60).toString(); 
-
-    //old method
-    // return `${minutes < 10 ? "0".concat(minutes.toString()) : minutes}:${seconds < 10 ? "0".concat(seconds.toString()) : seconds}`
-
-    //using padStart
-    return `${minutes.padStart(2, "0")}:${seconds.padStart(2, "0")}`;
-}
-
+import { formatTimeHours } from "../utils/formatTimeHours";
+import '../styles/PomodoroTimer.css';
 
 
 function PomodoroTimer(){
@@ -38,7 +27,7 @@ function PomodoroTimer(){
     return (
     <section className="timer-shell">
         <div className="timer-card">
-        <h3 id="timer">{formatTime(seconds)}</h3>
+        <h3 id="timer">{formatTimeHours(seconds)}</h3>
 
         <div className="timer-actions">
             <button

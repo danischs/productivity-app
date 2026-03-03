@@ -8,8 +8,7 @@
 }
 
 /* Center the timer area on the page */
-.timer-shell {
-    flex: 1;                 
+.timer-shell {                 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,12 +18,12 @@
 
 /* Stone card */
 .timer-card {
-    margin-top: 10rem;
+    margin-top: 5rem;
     width: min(680px, 100%);
     background: linear-gradient(180deg, var(--iron), var(--iron-2));
     border: 1px solid rgba(232, 228, 220, 0.08);
     border-top: 3px solid var(--gold);
-    border-radius: 18px;
+    border-radius: 10px;
     padding: 3.25rem 2.5rem 2.25rem;
     box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
     text-align: center;
@@ -46,12 +45,11 @@
 
 /* Big gold timer */
 #timer {
-  margin: 0;
+  width: 200px;
+  margin: 20px auto;
   font-size: clamp(3rem, 6vw, 5rem);
-  letter-spacing: 4px;
   color: var(--gold);
   text-shadow: 0 0 14px rgba(197, 162, 79, 0.35);
-  font-variant-numeric: tabular-nums; /* keeps digits same width */
 }
 
 /* Buttons row */

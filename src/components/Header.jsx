@@ -1,6 +1,6 @@
 
-import './Header.css';
-import logo from './LevelupLogo.png'
+import '../styles/Header.css';
+import logo from '../assets/LevelupLogo.png'
 
 function Header(){
     return(
