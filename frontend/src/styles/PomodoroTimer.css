@@ -7,7 +7,7 @@
   --gold-soft: rgba(197, 162, 79, 0.45);
 }
 
-/* Center the timer area on the page */
+
 .timer-shell {                 
     display: flex;
     justify-content: center;
@@ -16,7 +16,7 @@
     min-height: 0;           
 }
 
-/* Stone card */
+
 .timer-card {
     margin-top: 5rem;
     width: min(680px, 100%);
@@ -30,7 +30,7 @@
     position: relative;
 }
 
-/* Subtle rune divider */
+
 .timer-card::before {
   content: "᛫ ᚨ ᛫ ᚱ ᛫";
   position: absolute;
@@ -43,7 +43,7 @@
   text-shadow: 0 0 8px rgba(197, 162, 79, 0.4);
 }
 
-/* Big gold timer */
+
 #timer {
   width: 200px;
   margin: 20px auto;
@@ -52,7 +52,7 @@
   text-shadow: 0 0 14px rgba(197, 162, 79, 0.35);
 }
 
-/* Buttons row */
+
 .timer-actions {
   margin-top: 2rem;
   display: flex;
@@ -61,53 +61,6 @@
   flex-wrap: wrap;
 }
 
-/* Shared button styling */
-#action-btn,
-#reset-btn {
-  border-radius: 12px;
-  padding: 0.9rem 1.2rem;
-  font-size: 0.95rem;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
-}
-
-/* Primary button */
-#action-btn {
-  background: var(--gold);
-  color: #141414;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  box-shadow: 0 10px 20px rgba(197, 162, 79, 0.22);
-}
-
-#action-btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 14px 28px rgba(197, 162, 79, 0.28);
-}
-
-#action-btn:active {
-  transform: translateY(0px);
-}
-
-/* Secondary button */
-#reset-btn {
-  background: transparent;
-  color: var(--bone);
-  border: 1px solid rgba(232, 228, 220, 0.18);
-}
-
-#reset-btn:hover {
-  border-color: rgba(197, 162, 79, 0.45);
-  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.28);
-  transform: translateY(-1px);
-}
-
-#reset-btn:active {
-  transform: translateY(0px);
-}
-
-/* Optional: make page background match theme */
 body {
   background: #111;
   color: var(--bone);

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { formatTimeHours } from "../utils/formatTimeHours";
 import '../styles/PomodoroTimer.css';
+import Button from "../components/Button";
 
 
 function PomodoroTimer(){
@@ -30,17 +31,13 @@ function PomodoroTimer(){
         <h3 id="timer">{formatTimeHours(seconds)}</h3>
 
         <div className="timer-actions">
-            <button
-            type="button"
+        <Button
             id="action-btn"
             onClick={() => setRunning(prev => !prev)}
-            >
-            {seconds == 0 ? "Reset" : isRunning ? "Pause" : "Start"}
-            </button>
+            label={seconds == 0 ? "Reset" : isRunning ? "Pause" : "Start"}
+        />
 
-            <button type="button" id="reset-btn" onClick={reset}>
-            Reset
-            </button>
+        <Button id="reset-btn" onClick={reset} label="Reset" />
         </div>
         </div>
     </section>

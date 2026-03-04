@@ -1,8 +1,27 @@
 import Footer from "../components/Footer";
 import "../styles/Login.css";
 import LevelUpLogo from "../assets/LevelUpLogo.png"
+import Button from "../components/Button"
+import { useState } from "react";
 
 export function Login() {
+  let [username, setUsername] = useState("");
+  let [password, setPassword] = useState("");
+
+
+  async function handleSignUp(e) {
+    e.preventDefault();
+    const response = await fetch("http://localhost:3000/users/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password })
+    });
+    const data = await response.json();
+    console.log(data);
+  }
+
+
+
   return (
     <>
       <div className="login-wrapper">
@@ -22,6 +41,7 @@ export function Login() {
                 <input
                   type="text"
                   id="username"
+                  onChange={(e) => setUsername(e.target.value)}
                   name="username"
                   required
                   minLength={5}
@@ -34,11 +54,16 @@ export function Login() {
                 <input
                   type="password"
                   id="password"
+                  onChange={(e) => setPassword(e.target.value)}
                   name="password"
                   required
                   minLength={8}
                   maxLength={30}
                 />
+              </div>
+              <div className="login-buttons">
+                <Button label="Login" />
+                <Button label="Sign Up" onClick = {(e) => handleSignUp(e)} />
               </div>
             </form>
           </div>
