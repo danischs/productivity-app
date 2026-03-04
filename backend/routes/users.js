@@ -17,6 +17,22 @@ router.post("/signup", async (req,res) =>{
     res.json({message: "User created!"})
 });
 
+router.post("/login", async (req,res) =>{
+    const {username, password} = req.body;
+
+
+    const result = await pool.query(
+        "SELECT * FROM users WHERE username = $1",
+        [username]
+    );
+    if (result.rowCount == 0){
+        return res.json({"accessAllowed" : false})
+    }
+    const passwordCheck = await bcrypt.compare(password, result.rows[0].password_hash);
+
+    return res.json({"accessAllowed" : passwordCheck})
+
+});
 
 
 
