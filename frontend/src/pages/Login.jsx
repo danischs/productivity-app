@@ -3,11 +3,12 @@ import "../styles/Login.css";
 import LevelUpLogo from "../assets/LevelUpLogo.png"
 import Button from "../components/Button"
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 export function Login() {
   let [username, setUsername] = useState("");
   let [password, setPassword] = useState("");
-
+  const navigate = useNavigate();
 
   async function handleSignUp(e) {
     e.preventDefault();
@@ -18,6 +19,20 @@ export function Login() {
     });
     const data = await response.json();
     console.log(data);
+  }
+
+  async function handleLogin(e){
+    e.preventDefault();
+    const response = await fetch("http://localhost:3000/users/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, password })      
+    });
+    const data = await response.json()
+
+    if (data.accessAllowed == true){
+      navigate("/home");
+    }
   }
 
 
@@ -62,7 +77,7 @@ export function Login() {
                 />
               </div>
               <div className="login-buttons">
-                <Button label="Login" />
+                <Button label="Login" onClick = {(e) => handleLogin(e)} />
                 <Button label="Sign Up" onClick = {(e) => handleSignUp(e)} />
               </div>
             </form>
